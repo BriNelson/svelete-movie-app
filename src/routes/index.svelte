@@ -1,12 +1,18 @@
 <script>
+import { update_await_block_branch } from "svelte/internal"
+
     let searchedMovie = ''
-    let movieDataArray= handleClick()
+    let movieData = []
+
     async function handleClick() {
         const response = await fetch(`https://api.watchmode.com/v1/autocomplete-search/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&search_value=${searchedMovie}&search_type=1'`)
         const movieData = await response.json()
-        return movieData
+        console.log(movieData.results)
         
     }
+
+console.log(movieData)
+
 </script>
 
 <div>
@@ -19,7 +25,7 @@
           </form>
         </div>
       </nav>
-      
+     
 
 
 </div>
