@@ -1,8 +1,9 @@
 <script>
-    import { Input, Button } from 'flowbite-svelte'
+    
     </script>
 
-<Input class="mb-6" placeholder="Base input" label="Base input"/>
-<Button name="Button text-xs" textSize="text-xs" />
+<div class="container mx-auto">
 <p>is this working</p>
 
+
+</div>
