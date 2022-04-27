@@ -16,7 +16,11 @@
       movieData = fetchApiData()
     }
     function handleSave(movies) {
-        console.log (movies.name)
+
+      savedMovie = [...savedMovie, {name: movies.name, image_url: movies.image_url, id: movies.id, year: movies.year, type: movies.type
+      
+      }]
+        console.log (savedMovie)
     }
 
 console.log(movieData)
