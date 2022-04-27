@@ -4,7 +4,7 @@ const FavoriteStore = writable(
     
     [
         {
-            id: 'testid',
+        id: 'testid',
       name: 'test'
         }
     ]
