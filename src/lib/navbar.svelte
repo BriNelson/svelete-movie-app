@@ -1,5 +1,5 @@
 <script>
-    import FavoriteStore from '../stores/FavoriteStore'
+    import FavoriteStore from '../stores/FavoriteStore.js'
  let searchedMovie = ''
     let movieData = fetchApiData()
     let savedMovie = []
@@ -16,11 +16,17 @@
       movieData = fetchApiData()
     }
     function handleSave(movies) {
-
-      savedMovie = [...savedMovie, {name: movies.name, image_url: movies.image_url, id: movies.id, year: movies.year, type: movies.type
+let newMovie = {name: movies.name, image_url: movies.image_url, id: movies.id, year: movies.year, type: movies.type
       
-      }]
-        console.log (savedMovie)
+    } 
+
+
+      // savedMovie = [...savedMovie, newMovie]
+
+      FavoriteStore.update(current => {
+        return [newMovie, ...current]
+      })
+        console.log(newMovie)
     }
 
 console.log(movieData)
@@ -35,7 +41,13 @@ console.log(movieData)
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active position-relative " aria-current="page" href="/">Home<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span></a>
+            
+             
+              
+                
+              
+            
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/movies">Movies</a>
@@ -65,7 +77,9 @@ console.log(movieData)
         <div class="modal-body">
           {#await movieData}
     <!-- moviData is pending -->
-   <p> loading</p>
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   {:then movie}
   
     {#each movie as movies, index}
