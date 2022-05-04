@@ -1,28 +1,24 @@
 <script>
+  import FavoriteStore from "../../stores/FavoriteStore.js";
+  let pathId = window.location.pathname.replace(/[^0-9]/g, "");
+  let favorites = [];
+  let movie = favorites.find(isMovie);
 
-import FavoriteStore from '../../stores/FavoriteStore.js'
-let pathId = window.location.pathname.replace(/[^0-9]/g, '')
-    console.log(pathId)
+  
+  FavoriteStore.subscribe((data) => {
+    favorites = data;
+  });
 
-    let favorites = []
-    FavoriteStore.subscribe(data =>{  
-favorites = data
+  function isMovie(movie) {
+    return movie.id === parseInt(pathId);
+  }
 
-    });
-
-   
-function isMovie (Testarray){
-     console.log(Testarray)
-    return Testarray.id === pathId
-}
- console.log(favorites)
-console.log(favorites.find(isMovie))
-
-   
+  
 </script>
 
 <div class="movie">
-    
-    <h2>title</h2>
+  <div class="container">
+    <h2>{movie.name}</h2>
     <p>movie</p>
+  </div>
 </div>
