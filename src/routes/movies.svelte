@@ -11,6 +11,7 @@ favorites = data
 
     const handleDelete = (id) => {
 FavoriteStore.update(current => {
+return current.filter(favorite => favorite.id != id)
 
 })
     }
