@@ -1,5 +1,5 @@
 <script>
-    import FavoriteStore from '../stores/FavoriteStore.js'
+    import FavoriteStore from '../stores/FavoriteStore'
     import { onMount } from 'svelte';
  let searchedMovie = ''
     let movieData = fetchApiData()
@@ -66,10 +66,7 @@ console.log(movieData)
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/shows">Shows <span class="badge bg-danger">{showList}</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
+          
         </ul>
         <form on:submit|preventDefault={handleClick} class="d-flex">
           <input bind:value={searchedMovie} class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

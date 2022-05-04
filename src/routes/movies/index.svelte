@@ -1,5 +1,7 @@
 <script>
-    import FavoriteStore from '../stores/FavoriteStore'
+    import FavoriteStore from '../../stores/FavoriteStore.js'
+    import { fade, scale } from 'svelte/transition'
+    import { flip } from 'svelte/animate'
 
     let favorites = []
     FavoriteStore.subscribe(data =>{  
@@ -26,13 +28,13 @@ return current.filter(favorite => favorite.id != id)
     {#each favorites as favorite}
     {#if favorite.type !== 'tv_series'}
     <div class="col">
-        <div class="card h-100">
+        <div class="card h-100" in:fade out:scale>
           <img src={favorite.image_url} class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{favorite.name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{favorite.year}</h6>
           </div>
-          <div class="card-footer"><button class="btn btn-outline-primary">info</button><button class="btn btn-danger ms-2" on:click={() => handleDelete(favorite.id)}>X</button></div>
+          <div class="card-footer"><button class="btn btn-outline-primary"><a href={`/movies/${favorite.id}`}>info</a></button><button class="btn btn-danger ms-2" on:click={() => handleDelete(favorite.id)}>X</button></div>
         </div>
       </div>
 
