@@ -1,8 +1,11 @@
 <script>
     import FavoriteStore from '../stores/FavoriteStore.js'
+    import { onMount } from 'svelte';
  let searchedMovie = ''
     let movieData = fetchApiData()
     let savedMovie = []
+    let movieList 
+    let showList
 
     async function fetchApiData() {
         const response = await fetch(`https://api.watchmode.com/v1/autocomplete-search/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&search_value=${searchedMovie}&search_type=1'`)
@@ -22,6 +25,15 @@ let newMovie = {name: movies.name, image_url: movies.image_url, id: movies.id, y
 
 
       // savedMovie = [...savedMovie, newMovie]
+
+FavoriteStore.subscribe(data => {
+let movies = data.filter(word => word.type !== 'tv_series' && word.type !== 'tv_miniseries')
+movieList = movies.length 
+
+let tvSeries = data.filter(word => word.type === 'tv_series' ||  word.type === 'tv_miniseries' )
+showList = tvSeries.length 
+
+})
 
       FavoriteStore.update(current => {
         return [newMovie, ...current]
@@ -50,10 +62,10 @@ console.log(movieData)
             
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/movies">Movies <span class="badge bg-danger">4</span></a>
+            <a class="nav-link" aria-current="page" href="/movies">Movies <span class="badge bg-danger">{movieList}</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/shows">Shows</a>
+            <a class="nav-link" aria-current="page" href="/shows">Shows <span class="badge bg-danger">{showList}</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/">Home</a>
