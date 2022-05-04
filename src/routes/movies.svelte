@@ -8,6 +8,12 @@ favorites = data
     });
 
     console.log(favorites)
+
+    const handleDelete = (id) => {
+FavoriteStore.update(current => {
+
+})
+    }
 </script>
 
 
@@ -25,7 +31,7 @@ favorites = data
             <h5 class="card-title">{favorite.name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{favorite.year}</h6>
           </div>
-          <div class="card-footer"><button class="btn btn-outline-primary">info</button></div>
+          <div class="card-footer"><button class="btn btn-outline-primary">info</button><button class="btn btn-danger ms-2" on:click={() => handleDelete(favorite.id)}>X</button></div>
         </div>
       </div>
 

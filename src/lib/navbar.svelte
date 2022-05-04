@@ -41,7 +41,7 @@ console.log(movieData)
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active position-relative " aria-current="page" href="/">Home<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span></a>
+            <a class="nav-link active position-relative " aria-current="page" href="/">Home</a>
             
              
               
@@ -50,7 +50,7 @@ console.log(movieData)
             
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/movies">Movies</a>
+            <a class="nav-link" aria-current="page" href="/movies">Movies <span class="badge bg-danger">4</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/shows">Shows</a>
