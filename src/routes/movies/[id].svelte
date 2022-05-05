@@ -52,29 +52,23 @@
 {/each}
     
     
-    
+
+
+<h5 class="mt-5">Cast</h5>
     <ul class="list-group mt-3">
+        {#each movie.cast_crew as crew}
+        {#if crew.order <= 20 && crew.order !== null}
         <li class="list-group-item d-flex justify-content-between align-items-start">
+            <img src={crew.headshot_url}  style="max-width: 70px">
           <div class="ms-2 me-auto">
-            <div class="fw-bold">Subheading</div>
-            Content for list item
+            <div class="fw-bold">{crew.full_name}</div>
+            {crew.role}
           </div>
           
         </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Subheading</div>
-            Content for list item
-          </div>
-          
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">Subheading</div>
-            Content for list item
-          </div>
-          
-        </li>
+        {/if}
+        {/each}
+        
       </ul>
     
     

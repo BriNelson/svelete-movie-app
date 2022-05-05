@@ -22,16 +22,16 @@ return current.filter(favorite => favorite.id != id)
 
 
 <div class="container">
-    
+    <h1 class="mt-2">Movies</h1>
 
-      <div class="row row-cols-1 row-cols-md-6 g-4">
+      <div class="row row-cols-1 row-cols-md-6 g-4 mt-3">
     {#each favorites as favorite}
     {#if favorite.type !== 'tv_series'}
     <div class="col">
         <div class="card h-100" in:fade out:scale>
           <img src={favorite.image_url} class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">{favorite.name}</h5>
+            <h6 class="card-title">{favorite.name}</h6>
             <h6 class="card-subtitle mb-2 text-muted">{favorite.year}</h6>
           </div>
           <div class="card-footer"><button class="btn btn-outline-primary"><a href={`/movies/${favorite.id}`}>info</a></button><button class="btn btn-danger ms-2" on:click={() => handleDelete(favorite.id)}>X</button></div>

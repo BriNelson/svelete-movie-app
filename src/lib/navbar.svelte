@@ -19,7 +19,7 @@
   }
 
   async function getMovieById(id) {
-    const response = await fetch(`https://api.watchmode.com/v1/title/${id}/details/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&append_to_response=sources`)
+    const response = await fetch(`https://api.watchmode.com/v1/title/${id}/details/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&append_to_response=sources,cast-crew`)
 const savedMovieData2 = await response.json();
 console.log(savedMovieData2)
 
@@ -54,6 +54,7 @@ console.log(test)
       runtime_minutes: test.runtime_minutes,
       us_rating: test.us_rating,
       genre_names: test.genre_names,
+      cast_crew: test.cast_crew,
 
 
       
