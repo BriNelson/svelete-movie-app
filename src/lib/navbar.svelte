@@ -101,19 +101,19 @@ console.log(test)
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a
-            class="nav-link active position-relative "
+            class="nav-link active position-relative"
             aria-current="page"
             href="/">Home</a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/movies"
-            >Movies <span class="badge bg-danger">{movieList}</span></a
+            >Movies {#if isNaN(movieList) === false && movieList > 0}<span class="badge bg-danger">{movieList}</span>{/if} </a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/shows"
-            >Shows <span class="badge bg-danger">{showList}</span></a
+            >Shows {#if isNaN(showList) === false && showList > 0}<span class="badge bg-danger">{showList}</span>{/if}</a
           >
         </li>
       </ul>
