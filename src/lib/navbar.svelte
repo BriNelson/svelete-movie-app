@@ -52,9 +52,9 @@ console.log(test)
       trailer: test.trailer,
       trailer_thumbnail: test.trailer_thumbnail,
       runtime_minutes: test.runtime_minutes,
-      us_ratings: test.us_ratings,
+      us_rating: test.us_rating,
       genre_names: test.genre_names,
-      
+
 
       
     };

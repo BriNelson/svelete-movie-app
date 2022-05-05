@@ -23,9 +23,10 @@
 </script>
 
 <div class="movie">
-  <div class="container">
-
-    <div class="card mb-3" style="max-width: 500px;">
+  <div class="container" style="max-width: 500px">
+    <h3 class="mt-4 mx-auto " style="max-width: 500px">{movie.name}</h3>
+    <h6 class="text-secondary">{movie.type} - {movie.us_rating} - {movie.year}</h6>
+    <div class="card mb-3 mx-auto" style="max-width: 500px">
         <div class="row g-0">
           <div class="col-md-4">
             <img src={movie.image_url} class="img-fluid rounded-start" alt="...">
@@ -38,8 +39,43 @@
           </div>
         </div>
       </div>
-    <h2>{movie.name}</h2>
-    <p>{movie.plot}</p>
+    
+      <h5>Summary</h5>
+    <p class="mx-auto"style="max-width: 500px">{movie.plot}</p>
+
+    {#each movie.sources as source}
+    {#if source.type == "sub"}
+         <!-- content here -->
+    
+    <span class="badge bg-primary me-1">{source.name}</span>
+    {/if}
+{/each}
+    
+    
+    
+    <ul class="list-group mt-3">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Content for list item
+          </div>
+          
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Content for list item
+          </div>
+          
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Content for list item
+          </div>
+          
+        </li>
+      </ul>
     
     
   </div>
