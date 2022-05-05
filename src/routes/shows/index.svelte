@@ -1,4 +1,4 @@
-<!-- MOVIE ROUTE -->
+<!-- SHOWS ROUTE -->
 
 <script>
     import FavoriteStore from '../../stores/FavoriteStore.js'
@@ -24,7 +24,7 @@ return current.filter(favorite => favorite.id != id)
 
 
 <div class="container">
-    <h1 class="mt-2">Shows</h1>
+    <h1 class="mt-2" in:fade>Shows</h1>
 
       <div class="row row-cols-1 row-cols-md-6 g-4 mt-3">
     {#each favorites as favorite}
