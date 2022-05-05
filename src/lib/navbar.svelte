@@ -4,11 +4,11 @@
   let searchedMovie = "";
   let movieData = fetchApiData();
   let savedMovie = [];
-  let movieList; 
+  let movieList;
   let showList;
   // let savedMovieData = getMovieById()
-  let test
-
+  let test;
+  // ----- FETCH INTIAL API DATA -----
   async function fetchApiData() {
     const response = await fetch(
       `https://api.watchmode.com/v1/autocomplete-search/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&search_value=${searchedMovie}&search_type=1'`
@@ -17,29 +17,25 @@
     const movieArray = await movieData.results;
     return movieArray;
   }
-
+  // ----- FETCH MOVIE BY ID -----
   async function getMovieById(id) {
-    const response = await fetch(`https://api.watchmode.com/v1/title/${id}/details/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&append_to_response=sources,cast-crew`)
-const savedMovieData2 = await response.json();
-console.log(savedMovieData2)
+    const response = await fetch(
+      `https://api.watchmode.com/v1/title/${id}/details/?apiKey=2YFLc8ybj1SYc0aKKuuAmixVq0Gn0I5HeummEHHT&append_to_response=sources,cast-crew`
+    );
+    const savedMovieData2 = await response.json();
+    console.log(savedMovieData2);
 
-
-return savedMovieData2
-    
-}
+    return savedMovieData2;
+  }
 
   function handleClick() {
     movieData = fetchApiData();
   }
 
-
-  async function handleSave (movies) {
-
-
-   
-
-test = await getMovieById(movies.id)
-console.log(test)
+  //----- HANDLE SAVE ------
+  async function handleSave(movies) {
+    test = await getMovieById(movies.id);
+    console.log(test);
 
     let newMovie = {
       name: movies.name,
@@ -55,12 +51,9 @@ console.log(test)
       us_rating: test.us_rating,
       genre_names: test.genre_names,
       cast_crew: test.cast_crew,
-
-
-      
     };
 
-    // savedMovie = [...savedMovie, newMovie]
+    //----- DATA STORE -----
 
     FavoriteStore.subscribe((data) => {
       let movies = data.filter(
@@ -77,12 +70,13 @@ console.log(test)
     FavoriteStore.update((current) => {
       return [newMovie, ...current];
     });
-    console.log(newMovie);
+    
   }
 
   console.log(movieData);
 </script>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Movie App</a>
@@ -108,12 +102,16 @@ console.log(test)
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/movies"
-            >Movies {#if isNaN(movieList) === false && movieList > 0}<span class="badge bg-danger">{movieList}</span>{/if} </a
-          >
+            >Movies {#if isNaN(movieList) === false && movieList > 0}<span
+                class="badge bg-danger">{movieList}</span
+              >{/if}
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/shows"
-            >Shows {#if isNaN(showList) === false && showList > 0}<span class="badge bg-danger">{showList}</span>{/if}</a
+            >Shows {#if isNaN(showList) === false && showList > 0}<span
+                class="badge bg-danger">{showList}</span
+              >{/if}</a
           >
         </li>
       </ul>
@@ -135,7 +133,7 @@ console.log(test)
     </div>
   </div>
 </nav>
-
+<!-- SEARCH MODAL -->
 <div
   class="modal fade"
   id="staticBackdrop"
@@ -158,7 +156,6 @@ console.log(test)
       </div>
       <div class="modal-body">
         {#await movieData}
-          <!-- moviData is pending -->
           <div class="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
@@ -185,7 +182,6 @@ console.log(test)
                 </div>
               </div>
             </div>
-            <!-- content here -->
           {/each}
         {:catch error}
           <!-- moviData was rejected -->

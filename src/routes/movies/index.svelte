@@ -1,3 +1,5 @@
+<!-- MOVIE ROUTE -->
+
 <script>
     import FavoriteStore from '../../stores/FavoriteStore.js'
     import { fade, scale } from 'svelte/transition'
@@ -9,7 +11,7 @@ favorites = data
 
     });
 
-    console.log(favorites)
+    
 
     const handleDelete = (id) => {
 FavoriteStore.update(current => {
