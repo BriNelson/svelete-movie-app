@@ -36,7 +36,7 @@ return current.filter(favorite => favorite.id != id)
             <h6 class="card-title">{favorite.name}</h6>
             <h6 class="card-subtitle mb-2 text-muted">{favorite.year}</h6>
           </div>
-          <div class="card-footer"><button class="btn btn-outline-primary"><a href={`/movies/${favorite.id}`}>info</a></button><button class="btn btn-danger ms-2" on:click={() => handleDelete(favorite.id)}>X</button></div>
+          <div class="card-footer"><button class="btn btn-outline-primary"><a href={`/${favorite.id}`}>info</a></button><button class="btn btn-danger ms-2" on:click={() => handleDelete(favorite.id)}>X</button></div>
         </div>
       </div>
 

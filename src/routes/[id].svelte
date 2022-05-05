@@ -1,5 +1,5 @@
 <script>
-    import FavoriteStore from "../../stores/FavoriteStore.js";
+    import FavoriteStore from "../stores/FavoriteStore.js";
     let pathId = window.location.pathname.replace(/[^0-9]/g, "");
     console.log(pathId);
   
