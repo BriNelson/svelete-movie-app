@@ -1,5 +1,5 @@
 # Sevelte movie app
-you can search Movies and shows
+[you can search Movies and shows]()
 you can save movies and shows
 you can access saved items from each page
 you can see movies you saved 
@@ -14,4 +14,6 @@ you can see number notifications for how many movies and tv shows you have saved
 
 
 [Github Link](https://github.com/BriNelson/svelete-movie-app)
+<br>
+
 [Netlify Link](https://mellow-nougat-25f4a4.netlify.app/movies)
