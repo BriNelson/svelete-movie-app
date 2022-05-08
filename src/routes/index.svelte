@@ -2,8 +2,10 @@
 
 <script>
     import FavoriteStore from '../stores/FavoriteStore.js'
+    import genreData from '../genre.json'
     import { fade, scale } from 'svelte/transition'
     import { flip } from 'svelte/animate'
+let selected = 'hulu';
 
     let favorites = []
     FavoriteStore.subscribe(data =>{  
@@ -11,7 +13,7 @@ favorites = data
 
     });
 
-    
+    console.log(genreData)
 
     const handleDelete = (id) => {
 FavoriteStore.update(current => {
@@ -19,15 +21,23 @@ return current.filter(favorite => favorite.id != id)
 
 })
     }
+    // console.log(genreData)
 </script>
 
 
 
 <div class="container">
     <h1 class="mt-2" in:fade>Home</h1>
-
+    <!-- <label for="">Example select</label>
+    <select bind:value={selected}  class="form-control" id="exampleFormControlSelect1">
+      {#each genreData as genres}
+      <option>{genres.name}</option>
+      {/each}
+    </select>
+{selected} -->
       <div class="row row-cols-1 row-cols-md-6 g-4 mt-3">
     {#each favorites as favorite}
+     
     
     <div class="col">
         <div class="card h-100" in:fade out:scale>
@@ -40,7 +50,7 @@ return current.filter(favorite => favorite.id != id)
         </div>
       </div>
 
-         
+        
     {/each}
 </div>
 </div>

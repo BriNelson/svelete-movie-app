@@ -1,0 +1,125 @@
+[
+    {
+        "source_id": 344,
+        "name": "YouTube",
+        "type": "buy",
+        "region": "US"
+    },
+    {
+        "source_id": 349,
+        "name": "iTunes",
+        "type": "buy",
+        "region": "US"
+
+    },
+    
+    {
+        "source_id": 140,
+        "name": "Google Play",
+        "type": "buy",
+        "region": "US"
+    },
+    {
+        "source_id": 307,
+        "name": "VUDU",
+        "type": "buy",
+        "region": "US"
+    },
+    {
+        "source_id": 24,
+        "name": "Amazon",
+        "type": "buy",
+        "region": "US"
+    },
+    {
+        "source_id": 398,
+        "name": "Microsoft Store",
+        "type": "buy",
+        "region": "US"
+    },
+    {
+        "source_id": 387,
+        "name": "HBO MAX",
+        "type": "sub",
+        "region": "US"
+    },
+    {
+        "source_id": 443,
+        "name": "Spectrum On Demand",
+        "type": "sub",
+        "region": "US"
+    },
+    {
+        "source_id": 442,
+        "name": "DirecTV On Demand",
+        "type": "sub",
+        "region": "US"
+    },
+    {
+        "source_id": 372,
+        "name": "Disney+",
+        "type": "sub",
+        "region": "US"
+        
+    },
+    {
+        "source_id": 203,
+        "name": "Netflix",
+        "type": "sub",
+        "region": "US"
+    },
+    {
+        "source_id": 157,
+        "name": "Hulu",
+        "type": "sub",
+        "region": "US"
+    },
+    {
+        "source_id": 122,
+        "name": "FX",
+        "type": "tve",
+        "region": "US"
+    },
+    {
+        "source_id": 444,
+        "name": "Paramount+",
+        "type": "sub",
+        "region": "US",
+    },
+    {
+        "source_id": 376,
+        "name": "Britbox",
+        "type": "sub",
+        "region": "US"
+       
+    },
+    {
+        "source_id": 388,
+        "name": "Peacock",
+        "type": "free",
+        "region": "US"
+       
+    },
+    {
+        "source_id": 373,
+        "name": "fuboTV",
+        "type": "sub",
+        "region": "US"
+        
+    },
+    {
+        "source_id": 381,
+        "name": "Funimation",
+        "type": "sub",
+        "region": "US"
+    },
+    {
+        "source_id": 79,
+        "name": "Crunchyroll",
+        "type": "free",
+        "region": "US"
+        
+    }
+
+    
+]
